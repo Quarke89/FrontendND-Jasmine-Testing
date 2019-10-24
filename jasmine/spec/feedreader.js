@@ -63,7 +63,7 @@ $(function () {
         * hiding/showing of the menu element.
         */
         it('is hidden by default', function () {
-            expect(document.querySelector('body').className).toBe('menu-hidden');
+            expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(true);
         });
 
         /* A test that ensures the menu changes
@@ -73,9 +73,9 @@ $(function () {
         */
         it('toggles visibility when clicked', function () {
             document.querySelector('.menu-icon-link').click();
-            expect(document.querySelector('body').className).not.toBe('menu-hidden');
+            expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(false);
             document.querySelector('.menu-icon-link').click();
-            expect(document.querySelector('body').className).toBe('menu-hidden');
+            expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(true);
         });
 
     });
@@ -97,7 +97,7 @@ $(function () {
         }); 
 
         it('are loaded', function(done) {
-            expect(document.querySelector('.feed .entry')).toBeDefined();
+            expect(document.querySelectorAll('.feed .entry').length).toBeGreaterThan(0);
             done();
         });
 
